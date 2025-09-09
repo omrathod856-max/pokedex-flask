@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokémon of the Day</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="pokedex-title">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" alt="Pokeball" class="pokeball-logo">
+      Pokémon of the Day
+    </h1>
+    <nav>
+      <a href="{{ url_for(index) }}" class="nav-button">Back to Pokedex</a>
+<!--      <a href="team.html" class="nav-button">My Team</a>-->
+    </nav>
+  </header>
+
+  <main class="daily-container">
+    <div class="daily-card">
+      <img src="{{ pkm['image'] }}" alt="{{ pkm['name'] }}" class="daily-img">
+      <h2>{{ pkm['name'] }}</h2>
+      <p><strong>Type:</strong> {{ ", ".join(pkm['type']) }}</p>
+      <p><strong>Entry:</strong> {{ pkm['entry'] }}</p>
+
+      <div class="cry-container">
+        <p><strong>Pokémon Cry:</strong></p>
+        <audio controls>
+          <source src="{{ pkm['cry_url'] }}" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Pokédex Project © 2025</p>
+  </footer>
+</body>
+</html>

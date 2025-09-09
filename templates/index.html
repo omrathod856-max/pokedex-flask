@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex - All Pokémon</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+  <header >
+    <h1 class="pokedex-title">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+           alt="Pokéball" class="pokeball-logo">
+      Pokedex
+    </h1>
+        <form  action="/search" method="get" class="search-bar header">
+          <input type="text" name="q" placeholder="Search Pokémon..." required>
+          <button type="submit">Search</button>
+        </form>
+    <nav class="header">
+      <a class="nav-button team-button header-buttons" href=" {{ url_for('my_team')}}">Pokemon Team</a>
+    </nav>
+
+    <div class="search-container">
+      <form action="/sort_types" method="get" >
+        <input type="text" name="t" id="searchInput" placeholder="Filter by type..." required>
+        <button class="filter-button">Filter</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="pokemon-list">
+    <!-- Example Pokémon -->
+    {% for pkm in pokemons %}
+
+    <div class="pokemon-card">
+      <img src="{{pkm['sprite_url']}}" alt="{{pkm['name']}}">
+      <h2>{{ pkm['name'] }}</h2>
+      <div class="types">
+      {% for t in pkm['type'] %}
+        <span class="type {{ t|lower }}">{{ t }}</span>
+      {% endfor %}
+      </div>
+
+<!--      <p>Type: {{ pkm['type'] | join(', ') }}</p>-->
+      <a href="{{url_for('pokemon' , id=pkm['id'] )}}">View Details</a>
+    </div>
+    {% endfor %}
+<!--    <div class="pokemon-card">-->
+<!--      <h2>Charmander</h2>-->
+<!--      <p>Type: Fire</p>-->
+<!--      <a href="details.html">View Details</a>-->
+<!--    </div>-->
+
+<!--    <div class="pokemon-card">-->
+<!--      <h2>Squirtle</h2>-->
+<!--      <p>Type: Water</p>-->
+<!--      <a href="details.html">View Details</a>-->
+<!--    </div>-->
+  </main>
+<footer>
+  <p>&copy; 2025 Pokédex Project | Made by Om Rathod</p>
+
+</footer>
+
+</body>
+
+</html>

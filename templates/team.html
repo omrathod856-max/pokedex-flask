@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Team</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>My Pokémon Team</h1>
+    <a class="back-link" href="{{ url_for('index') }}">← Back to Pokedex</a>
+  </header>
+
+  <main class="pokemon-list">
+    {% for pkm in pokemons %}
+    <div class="pokemon-card">
+      <img src="{{ pkm['sprite_url'] }}" alt="{{ pkm['name'] }}">
+      <h2>{{ pkm['name'] }}</h2>
+      <p>Type: {{ pkm['type'] | join(', ') }}</p>
+    </div>
+    {% endfor %}
+  </main>
+<footer>
+  <p>&copy; 2025 Pokédex Project | Made by Om Rathod</p>
+
+</footer>
+</body>
+</html>
