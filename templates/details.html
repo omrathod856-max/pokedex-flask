@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokemon Details</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Pokemon Details</h1>
+    <a class="back-link" href="{{ url_for('index') }}">← Back to List</a>
+  </header>
+
+  <main class="pokemon-details">
+    <!-- Example detail for Bulbasaur -->
+    <img class="pokemon-image" src="{{selected_pokemon['image_url'] }}" alt="{{selected_pokemon['name']}} Atrwork">
+    <h2>{{selected_pokemon['name']}}</h2>
+    <p><strong>Type:</strong>{{selected_pokemon['type']  | join(', ')}}</p>
+    <p><strong>Description:</strong>{{selected_pokemon['pokedex_entry']}}</p>
+
+    <div class="cry-container">
+      <p><strong>Pokémon Cry:</strong></p>
+      <audio controls>
+        <source src="{{ selected_pokemon['cry_url'] }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="stats-container">
+        <h3>Base Stats</h3>
+    <ul class="stats">
+      <li>
+        <span class="stat-label">
+        <strong>Hp:</strong>
+        </span>
+        <div class="stat-bar">
+        <div class="stat-fill" style="width: {{ ( selected_pokemon['stats']['hp'] / max ) * 100 }}%;"></div>
+        </div>
+        {{ selected_pokemon['stats']['hp'] }}
+      </li>
+      <li>
+        <span class="stat-label">
+        <strong>Attack:</strong>
+        </span>
+        <div class="stat-bar">
+        <div class="stat-fill" style="width: {{ ( selected_pokemon['stats']['attack'] / max ) * 100 }}%;"></div>
+        </div>
+        {{ selected_pokemon['stats']['attack'] }}
+      </li>
+      <li>
+        <span class="stat-label">
+        <strong>Defense:</strong>
+        </span>
+        <div class="stat-bar">
+        <div class="stat-fill" style="width: {{ ( selected_pokemon['stats']['defense'] / max ) * 100 }}%;"></div>
+        </div>
+        {{ selected_pokemon['stats']['defense'] }}
+      </li>
+      <li>
+        <span class="stat-label">
+        <strong>Sp. Atk:</strong>
+        </span>
+        <div class="stat-bar">
+        <div class="stat-fill" style="width: {{ (selected_pokemon['stats']['special_attack'] / max) * 100 }}%;"></div>
+        </div>
+        {{ selected_pokemon['stats']['special_attack'] }}
+      </li>
+      <li>
+        <span class="stat-label">
+        <strong>Sp. Def:</strong>
+        </span>
+        <div class="stat-bar">
+        <div class="stat-fill" style="width: {{ (selected_pokemon['stats']['special_defense'] / max ) * 100}}%;"></div>
+        </div>
+        {{ selected_pokemon['stats']['special_defense'] }}
+      </li>
+      <li>
+        <span class="stat-label">
+        <strong>Speed:</strong>
+        </span>
+        <div class="stat-bar">
+        <div class="stat-fill" style="width: {{ (selected_pokemon['stats']['speed'] / max) * 100 }}%;"></div>
+        </div>
+        {{ selected_pokemon['stats']['speed'] }}
+      </li>
+      <li>
+        <span class="stat-label">
+        <strong>Total:</strong>
+        </span>
+        {{ total }}
+      </li>
+        </span>
+    </ul>
+    </div>
+
+
+  </main>
+<footer>
+  <p>&copy; 2025 Pokédex Project | Made by Om Rathod</p>
+
+</footer>
+</body>
+</html>
