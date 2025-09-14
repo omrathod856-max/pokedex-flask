@@ -18,7 +18,41 @@
     <h2>{{selected_pokemon['name']}}</h2>
     <p><strong>Type:</strong>{{selected_pokemon['type']  | join(', ')}}</p>
     <p><strong>Description:</strong>{{selected_pokemon['pokedex_entry']}}</p>
+     
+    {% if selected_pokemon.abilities %}
+<div class="abilities-section">
+  <h2>Abilities</h2>
+  <div class="abilities-list">
+    {% if selected_pokemon.abilities.standard %}
+    <div class="ability-group">
+      <h3>Standard Abilities</h3>
+      <ul>
+        {% for ability in selected_pokemon.abilities.standard %}
+        <li class="ability-label standard">{{ ability }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
 
+    {% if selected_pokemon.abilities.hidden %}
+    <div class="ability-group">
+      <h3>Hidden Ability</h3>
+      <ul>
+        {% if selected_pokemon.abilities.hidden is string %}
+          <li class="ability-label hidden">{{ selected_pokemon.abilities.hidden }}</li>
+        {% else %}
+          {% for ability in selected_pokemon.abilities.hidden %}
+          <li class="ability-label hidden">{{ ability }}</li>
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+    
     <div class="cry-container">
       <p><strong>Pokémon Cry:</strong></p>
       <audio controls>
@@ -93,6 +127,58 @@
         </span>
     </ul>
     </div>
+    
+    {% if selected_pokemon.location and selected_pokemon.location|length > 0 %}
+<div class="location-section">
+  <h2>Locations</h2>
+  <div class="location-list">
+    {% for loc in selected_pokemon.location %}
+    <div class="location-card">
+      <h3>{{ loc.game }}</h3>
+      <p>{{ loc.area }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+
+    {% if selected_pokemon.evolutions and selected_pokemon.evolutions|length > 0 %}
+      <div class="evolution-section">
+        <h2>Evolution Line</h2>
+        <div class="evolution-line">
+          {% for evo in selected_pokemon.evolutions %}
+            <div class="evolution-card">
+              <a href="{{ url_for('pokemon', id=evo.id) }}">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ evo.id }}.png"
+                     alt="{{ evo.name }}">
+                <p>{{ evo.name }}</p>
+              </a>
+            </div>
+            {% if not loop.last %}
+              <span class="arrow">➡</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+{% endif %}
+
+{% if selected_pokemon.shiny_sprite_url %}
+<div class="shiny-section">
+  <h2>Shiny Form</h2>
+  <div class="shiny-card">
+    <div class="sprite-box">
+      <h3>Normal</h3>
+      <img src="{{ selected_pokemon.sprite_url }}" alt="{{ selected_pokemon.name }} Normal">
+    </div>
+    <span class="arrow">➡</span>
+    <div class="sprite-box">
+      <h3>Shiny</h3>
+      <img src="{{ selected_pokemon.shiny_sprite_url }}" alt="{{ selected_pokemon.name }} Shiny">
+    </div>
+  </div>
+</div>
+{% endif %}
 
 
   </main>
