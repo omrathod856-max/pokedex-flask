@@ -423,47 +423,62 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
+  margin: 1.5rem 0;
 }
 
 .evolution-card {
-  background: #fefefe;
-  border: 3px solid #2a75bb;
-  border-radius: 15px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   text-align: center;
-  width: 130px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 140px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
 }
 
 .evolution-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  border-color: #ff4d4d;
 }
 
 .evolution-card img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 0.5rem;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.2s ease;
 }
 
-.evolution-card p {
-  font-weight: bold;
-  font-size: 1rem;
-  color: #333;
+.evolution-card:hover img {
+  transform: scale(1.1);
 }
 
-.evolution-card a {
-  text-decoration: none;
-  color: inherit;
-}
 
-.arrow {
+
+
+.evolution-arrow {
   font-size: 2rem;
-  color: #ef5350;
-  font-weight: bold;
+  color: #e63946;
+  margin: 0 0.5rem;
 }
+
+
+
+@media (max-width: 768px) {
+  .evolution-line {
+    flex-direction: column;
+  }
+  .evolution-arrow {
+    transform: rotate(90deg);
+    margin: 0.5rem 0;
+  }
+}
+
+
+
+
 
 .shiny-section {
   margin-top: 2.5rem;
@@ -521,8 +536,8 @@ footer {
   font-family: 'Arial Black', sans-serif;
   font-size: 1.6rem;
   text-transform: uppercase;
-  color: #ffcb05; 
-  -webkit-text-stroke: 2px #2a75bb; 
+  color: #ffcb05;
+  -webkit-text-stroke: 2px #2a75bb;
   margin-bottom: 1.5rem;
 }
 
@@ -616,3 +631,21 @@ footer {
   color: white;
 }
 
+.evo-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff4d4d, #ff9900);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.evo-button:hover {
+  background: linear-gradient(135deg, #ff1a1a, #ff751a);
+  transform: scale(1.05);
+}
