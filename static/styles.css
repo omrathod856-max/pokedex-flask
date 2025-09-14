@@ -403,3 +403,216 @@ footer {
 .type.dark     { background-color: #705746; }
 .type.steel    { background-color: #B7B7CE; color: #333; }
 .type.fairy    { background-color: #D685AD; }
+
+
+.evolution-section {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.evolution-section h2 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #ff1e05;
+  margin-bottom: 1.5rem;
+}
+
+.evolution-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.evolution-card {
+  background: #fefefe;
+  border: 3px solid #2a75bb;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 130px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.evolution-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.evolution-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.5rem;
+}
+
+.evolution-card p {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #333;
+}
+
+.evolution-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: #ef5350;
+  font-weight: bold;
+}
+
+.shiny-section {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.shiny-section h2 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #ff1e05;
+  margin-bottom: 1.5rem;
+}
+
+.shiny-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sprite-box {
+  background: #fff;
+  border: 3px solid #ef5350;
+  border-radius: 15px;
+  padding: 1rem;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.sprite-box h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.sprite-box img {
+  width: 120px;
+  height: 120px;
+}
+
+.shiny-card .arrow {
+  font-size: 2rem;
+  color: #2a75bb;
+  font-weight: bold;
+}
+
+
+.location-section {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.location-section h2 {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #ffcb05; 
+  -webkit-text-stroke: 2px #2a75bb; 
+  margin-bottom: 1.5rem;
+}
+
+.location-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.location-card {
+  background: #fff;
+  border: 3px solid #42a5f5;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.location-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #2a75bb;
+}
+
+.location-card p {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+
+
+.abilities-section {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 2px solid #e63946;
+  border-radius: 12px;
+  background: #f8f9fa;
+}
+
+.abilities-section h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #e63946;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.ability-group {
+  margin-bottom: 1rem;
+}
+
+.ability-group h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.abilities-list ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ability-label {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.ability-label.standard {
+  background: #4caf50;
+  color: white;
+}
+
+.ability-label.hidden {
+  background: #6a5acd;
+  color: white;
+}
+
