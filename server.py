@@ -3,7 +3,7 @@ import requests
 import random
 
 app = Flask(__name__)
-pokedex_url = "https://api.npoint.io/7f39298c8c84f5c321f0"
+pokedex_url = "https://api.npoint.io/80e109ecf2e6bec2fa29"
 all_pkm = requests.get(pokedex_url).json()
 selected_pokemon = {}
 
@@ -48,4 +48,5 @@ def sort_types():
 
 if __name__ == '__main__':
     app.run(host = "0.0.0.0", port=5000,debug=True)
+
 
