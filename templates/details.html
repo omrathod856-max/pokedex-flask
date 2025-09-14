@@ -149,11 +149,11 @@
         <div class="evolution-line">
           {% for evo in selected_pokemon.evolutions %}
             <div class="evolution-card">
-              <a href="{{ url_for('pokemon', id=evo.id) }}">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ evo.id }}.png"
                      alt="{{ evo.name }}">
-                <p>{{ evo.name }}</p>
-              </a>
+                 <a href="{{ url_for('pokemon', id=evo['id']) }}" class="evo-button">
+                     {{ evo['name'] }}
+                 </a>
             </div>
             {% if not loop.last %}
               <span class="arrow">➡</span>
@@ -188,3 +188,4 @@
 </footer>
 </body>
 </html>
+
